@@ -11,7 +11,7 @@
 
 <div class="container">
     <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <h5>Username: ${sessionScope.user.username}</h5>
+        <h5>Username: ${sessionScope.user.username}</h5> <button></button>
         <h5>Password: <a href="#">Change Password</a></h5>
         <h5>Email: ${sessionScope.user.email}</h5>
 
