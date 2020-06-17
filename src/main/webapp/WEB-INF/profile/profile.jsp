@@ -11,12 +11,14 @@
 
 <div class="container">
     <h1>Welcome, ${sessionScope.user.username}!</h1>
-    <%--    <h2>Username: ${sessionScope.user.username}</h2>--%>
-    <%--    <h2>Email: ${sessionScope.user.email}</h2>--%>
+        <h5>Username: ${sessionScope.user.username}</h5>
+        <h5>Password: <a href="#">Change Password</a></h5>
+        <h5>Email: ${sessionScope.user.email}</h5>
+
 </div>
 
 <div class="container mt-4">
-    <h1>Here Are all the ads!</h1>
+    <h1>Here are ads you have posted!</h1>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
