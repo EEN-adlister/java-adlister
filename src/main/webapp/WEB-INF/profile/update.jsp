@@ -11,22 +11,22 @@
 <div class="container">
     <h1>Please update in your information.</h1>
     <form action="/update" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input id="username" name="updateUsername" class="form-control" type="text">
-        </div>
+<%--        <div class="form-group">--%>
+<%--            <label for="username">Username</label>--%>
+<%--            <input id="username" name="updateUsername" class="form-control" type="text">--%>
+<%--        </div>--%>
         <div class="form-group">
             <label for="email">Email</label>
             <input id="email" name="updateEmail" class="form-control" type="text">
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" name="updatePassword" class="form-control" type="password">
-        </div>
-        <div class="form-group">
-            <label for="confirm_password">Confirm Password</label>
-            <input id="confirm_password" name="confirm_password" class="form-control" type="password">
-        </div>
+<%--        <div class="form-group">--%>
+<%--            <label for="password">Password</label>--%>
+<%--            <input id="password" name="updatePassword" class="form-control" type="password">--%>
+<%--        </div>--%>
+<%--        <div class="form-group">--%>
+<%--            <label for="confirm_password">Confirm Password</label>--%>
+<%--            <input id="confirm_password" name="updateConfirmPassword" class="form-control" type="password">--%>
+<%--        </div>--%>
         <input type="submit" class="btn btn-primary btn-block">
     </form>
 </div>

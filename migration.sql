@@ -30,6 +30,5 @@ CREATE TABLE ads (
 select * from users;
 select * from ads;
 
-UPDATE users
-set username ='nayo'
-where username = 'nayoungie';
+
+UPDATE users set email ='nayoung' where username = 'nayoung';
