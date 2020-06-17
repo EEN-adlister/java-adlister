@@ -23,9 +23,9 @@
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2>${ad.title}</h2>
-            <p>${ad.category}</p>
-            <p>${ad.description}</p>
-            <p>${ad.displayUser()}</p>
+            <p><strong>Category: </strong>${ad.category}</p>
+            <p><strong>Description: </strong>${ad.description}</p>
+            <p><strong>Posted by: </strong>${ad.displayUser()}</p>
         </div>
     </c:forEach>
 
