@@ -28,12 +28,8 @@ CREATE TABLE ads (
 );
 
 select * from users;
-
-SELECT *
-FROM ads
-WHERE  user_id = 1;
-
-
 select * from ads;
 
-select id from users where username = 'evey';
+UPDATE users
+set username ='nayo'
+where username = 'nayoungie';

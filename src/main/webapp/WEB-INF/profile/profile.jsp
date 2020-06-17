@@ -10,12 +10,26 @@
 <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
 <div class="container">
-    <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <h5>Username: ${sessionScope.user.username}</h5> <button></button>
-        <h5>Password: <a href="#">Change Password</a></h5>
+    <div id="profile-info">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h5>Username: ${sessionScope.user.username}</h5>
         <h5>Email: ${sessionScope.user.email}</h5>
+    </div>
+
+    <div class="dropdown">
+        <form action="list" method="post">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Edit
+             </button>
+             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/update">Update Account Information</a>
+                <a class="dropdown-item" href="/create">Update Ad</a>
+             </div>
+        </form>
+    </div>
 
 </div>
+
 
 <div class="container mt-4">
     <h1>Here are ads you have posted!</h1>
