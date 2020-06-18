@@ -65,6 +65,18 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+
+    public void updateUserProfile(User user) {
+        try {
+            String query = "UPDATE users SET username = ?, email = ?, password=? WHERE id = " + user.getId();
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user profile.", e);
+
     public boolean doesUsernameExist(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
