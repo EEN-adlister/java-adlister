@@ -7,9 +7,17 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+
+<div id="formTitleAlert" class="alert alert-dark hide collapse " role="alert">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Error!</strong> Please make sure you have a title for your post (: .
+</div>
+
+
     <div class="container">
         <h1>Create a new Ad</h1>
-        <form action="/ads/create" method="post">
+        <form name="title" action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
@@ -27,8 +35,42 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-            <button type="submit" class="btn btn-block btn-primary">Create Post</button>
+            <input id="btn" type="submit" class="btn btn-block btn-primary" value="create a Post">
         </form>
     </div>
+
+
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('form[name="title"]').on("submit", function (e) {
+
+            var title = $(this).find('input[name="title"]');
+            if ($.trim(title.val()) === "") {
+                e.preventDefault();
+                $("#formTitleAlert").slideDown(400);
+
+            }
+        });
+
+        $('#btn').click(function () {
+            setTimeout(function () {
+                $('#formTitleAlert').hide('fade');
+            }, 2000);
+        });
+
+        $(".alert").find(".close").on("click", function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).closest(".alert").slideUp(400);
+        });
+    });
+</script>
 </body>
 </html>

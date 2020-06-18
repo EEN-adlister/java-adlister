@@ -54,6 +54,10 @@ public class Ad {
 
     public String getCategory() { return category;}
 
+    public void setCategory(String category){
+        this.category = category;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
