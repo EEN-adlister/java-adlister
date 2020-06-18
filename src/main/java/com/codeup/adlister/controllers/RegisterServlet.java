@@ -13,6 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String error = request.getParameter("error");
+        request.setAttribute("error", error);
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -24,9 +26,15 @@ public class RegisterServlet extends HttpServlet {
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+                || email.isEmpty()
+                || password.isEmpty()
+                || (!password.equals(passwordConfirmation))
+                || DaoFactory.getUsersDao().doesUsernameExist(username);
+
+        if(DaoFactory.getUsersDao().doesUsernameExist(username)){
+            response.sendRedirect("/register?error=username_exists");
+            return;
+        }
 
         if (inputHasErrors) {
             response.sendRedirect("/register");

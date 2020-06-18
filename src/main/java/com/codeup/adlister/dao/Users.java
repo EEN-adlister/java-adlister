@@ -8,4 +8,5 @@ public interface Users {
     User findByUsername(String username);
     User findByUserId(long userId);
     Long insert(User user);
+    boolean doesUsernameExist(String username);
 }
