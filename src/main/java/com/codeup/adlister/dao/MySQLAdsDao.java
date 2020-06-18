@@ -101,10 +101,11 @@ public class MySQLAdsDao implements Ads {
     @Override
     public void updateAd(Ad ad) {
         try {
-            String query = "UPDATE ads SET title = ?, description = ? WHERE id = " + ad.getId();
+            String query = "UPDATE ads SET title = ?, description = ?, category=? WHERE id = " + ad.getId();
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, ad.getTitle());
             stmt.setString(2, ad.getDescription());
+            stmt.setString(3, ad.getCategory());
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);

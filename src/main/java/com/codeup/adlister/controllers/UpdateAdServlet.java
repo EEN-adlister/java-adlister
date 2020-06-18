@@ -25,6 +25,7 @@ public class UpdateAdServlet extends HttpServlet {
 
         String updateTitle = request.getParameter("title");
         String updateDescription = request.getParameter("description");
+        String updateCategory = request.getParameter("category");
         Long updateAdId = Long.parseLong(request.getParameter("ad.id"));
 
         User user = (User) request.getSession().getAttribute("user");
@@ -32,6 +33,8 @@ public class UpdateAdServlet extends HttpServlet {
         Ad updatedAd = DaoFactory.getAdsDao().adId(updateAdId);
         updatedAd.setTitle(updateTitle);
         updatedAd.setDescription(updateDescription);
+        updatedAd.setCategory(updateCategory);
+
 
         // edit ad with information from form POST
         DaoFactory.getAdsDao().updateAd(updatedAd);
