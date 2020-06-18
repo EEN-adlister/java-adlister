@@ -22,12 +22,14 @@
     <h1>Update your Ad</h1>
     <form action="/ads/update" method="POST">
         <div class="form-group col3">
-            <label for="title">Old Title: ${ad.title}</label>
+<%--            <label for="title">Old Title: ${ad.title}</label>--%>
+            <label for="title"> Update title:</label>
             <input id="title" name="title" class="form-control" type="text" value ="${ad.title}">
+        </div>
 
-            <label for="description">Old Description: ${ad.description}</label>
+        <div>
+            <label for="description">Update Description: </label>
             <input id="description" name="description" class="form-control" type="text" value ="${ad.description}">
-
             <input id="ad.id" name="ad.id" class="form-control" type="hidden" value="${ad.id}">
         </div>
 
@@ -41,6 +43,7 @@
 
         <input id="submit" type="submit" class="btn btn-primary col3" value="Update">
     </form>
+
 </div>
 </body>
 </html>
