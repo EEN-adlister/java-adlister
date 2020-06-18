@@ -12,4 +12,7 @@ public interface Users {
 
     void updateUserProfile(User user);
 
+
+    boolean doesUsernameExist(String username);
+
 }
