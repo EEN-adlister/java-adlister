@@ -18,6 +18,7 @@
 
 <div class="container">
     <h1>Update your profile</h1>
+    <h1>${error}</h1>
     <form action="/profile/update" method="POST">
         <div class="form-group col3">
             <label for="username"> Update username:</label>

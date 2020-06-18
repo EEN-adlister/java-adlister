@@ -15,10 +15,12 @@ import java.io.IOException;
 @WebServlet(name = "controllers.UpdateProfileServlet", urlPatterns = "/profile/update")
 public class UpdateProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long userUpdateID = Long.parseLong(request.getParameter("id"));
 
+
+        Long userUpdateID = Long.parseLong(request.getParameter("id"));
         User user = DaoFactory.getUsersDao().findByUserId(userUpdateID);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
+
         request.getRequestDispatcher("/WEB-INF/profile/update.jsp").forward(request, response);
     }
 
@@ -32,10 +34,12 @@ public class UpdateProfileServlet extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
 
+
         User updateProfile = DaoFactory.getUsersDao().findByUserId(updateUserId);
         updateProfile.setUsername(updateUsername);
         updateProfile.setEmail(updateEmail);
         updateProfile.setPassword(updatePassword);
+
 
         DaoFactory.getUsersDao().updateUserProfile(updateProfile);
         request.getSession().setAttribute("user", updateProfile);
