@@ -17,9 +17,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -37,7 +37,6 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-
 
 
     @Override
@@ -58,6 +57,33 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> findAdsByUserId(Long id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ads by User Id", e);
+        }
+    }
+
+    @Override
+    public Ad findAdsById(long id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            System.out.println(extractAd(rs));
+            if (!rs.next()){
+                return null;
+            }
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("id not found", e);
+        }
+    }
 
 
     @Override
@@ -72,14 +98,41 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    public List<Ad> userSpecificPost(Long user_id ) {
+    public List<Ad> userSpecificPost(Long user_id) {
         String query = "SELECT * FROM ads where user_id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setLong(1,user_id);
+            stmt.setLong(1, user_id);
             return createAdsFromResults(stmt.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("Error filtering category", e);
+        }
+    }
+
+    public void editAd(Ad ad) {
+        try {
+            String query = "UPDATE ads SET title = ?, description = ?, category = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setString(3, ad.getCategory());
+            stmt.setLong(4, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteAd(long id) {
+        try {
+            String query = "DELETE FROM ads WHERE id = ? ";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            DaoFactory.getAdsDao().deleteAd(id);
+            stmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
@@ -87,11 +140,11 @@ public class MySQLAdsDao implements Ads {
     //for one specific ad
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description"),
-            rs.getString("category")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getString("category")
         );
     }
 

@@ -16,17 +16,16 @@
         <h5>Email: ${sessionScope.user.email}</h5>
     </div>
 
-    <div class="dropdown">
-        <form action="list" method="post">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Edit
-             </button>
-             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/update">Update Account Information</a>
-                <a class="dropdown-item" href="/create">Update Ad</a>
-             </div>
-        </form>
-    </div>
+    <%--    <div class="dropdown">--%>
+    <%--        <form action="list" method="post">--%>
+    <%--            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+    <%--            Edit--%>
+    <%--             </button>--%>
+    <%--             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--%>
+    <%--                <a class="dropdown-item" href="/update">Update Account Information</a>--%>
+    <%--             </div>--%>
+    <%--        </form>--%>
+    <%--    </div>--%>
 
 </div>
 
@@ -40,9 +39,21 @@
             <p><strong>Category: </strong>${ad.category}</p>
             <p><strong>Description: </strong>${ad.description}</p>
             <p><strong>Posted by: </strong>${ad.displayUser()}</p>
+            <p><strong>ID: </strong>${ad.id}</p>
         </div>
-    </c:forEach>
 
+                <div class="dropdown">
+                    <form action="list" method="post">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Edit
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/ads/update-ad">Update Ad</a>
+                        </div>
+                    </form>
+                </div>
+
+    </c:forEach>
 </div>
 
 </body>

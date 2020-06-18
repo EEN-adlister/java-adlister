@@ -12,6 +12,12 @@ public interface Ads {
 
     List<Ad> filterByCategory(String category);
     List<Ad> userSpecificPost(Long user_id);
+    List <Ad> findAdsByUserId(Long id);
+
+    Ad findAdsById(long id);
+
+    void editAd(Ad ad);
+    void deleteAd(long id);
 
 
 

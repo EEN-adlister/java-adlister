@@ -28,7 +28,6 @@ public class UpdateProfileServlet extends HttpServlet {
         User updateUser = new User(
                 request.getParameter("email")
         );
-        DaoFactory.getUsersDao().findByUsername();
 
         request.getRequestDispatcher("/WEB-INF/profile/update.jsp").forward(request, response);
     }

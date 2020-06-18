@@ -27,6 +27,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+
             <button type="submit" class="btn btn-block btn-primary">Create Post</button>
         </form>
     </div>

@@ -24,11 +24,9 @@ CREATE TABLE ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
-
 );
 
 select * from users;
 select * from ads;
 
 
-UPDATE users set email ='nayoung' where username = 'nayoung';
