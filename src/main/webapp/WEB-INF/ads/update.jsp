@@ -44,6 +44,13 @@
         <input id="submit" type="submit" class="btn btn-primary col3" value="Update">
     </form>
 
+    <form action="/ads/delete" method="post">
+        <input type="hidden" name="id" value="${ad.id}">
+        <button name="delete" class="btn btn-danger">
+            Delete this ad
+        </button>
+    </form>
+
 </div>
 </body>
 </html>

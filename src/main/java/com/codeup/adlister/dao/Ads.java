@@ -14,8 +14,8 @@ public interface Ads {
     List<Ad> userSpecificPost(Long user_id);
     Ad adId(Long id);
 
-    //update ads
     void updateAd(Ad ad);
+    void deleteAd(Long id);
 
 
 }
