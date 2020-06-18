@@ -11,9 +11,10 @@
 
 <div class="container">
     <div id="profile-info">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <h5>Username: ${sessionScope.user.username}</h5>
-        <h5>Email: ${sessionScope.user.email}</h5>
+        <h1>Welcome, ${user.username}!</h1>
+        <h5>Username: ${user.username}</h5>
+        <h5>Email: ${user.email}</h5>
+        <h5>ID: ${sessionScope.user.id}</h5>
     </div>
     <div class="dropdown">
         <form action="list" method="post">
@@ -22,7 +23,7 @@
                 Edit
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/update">Update Account Information</a>
+                <a class="dropdown-item" href="/profile/update?id=${user.id}">Update Account Information</a>
             </div>
         </form>
     </div>
