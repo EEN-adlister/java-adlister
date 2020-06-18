@@ -12,7 +12,10 @@ public interface Ads {
 
     List<Ad> filterByCategory(String category);
     List<Ad> userSpecificPost(Long user_id);
+    Ad adId(Long id);
 
+    //update ads
+    void updateAd(Ad ad);
 
 
 }
