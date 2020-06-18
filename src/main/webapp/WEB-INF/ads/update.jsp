@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Category</label>
-            <select class="form-control" name="category" id="exampleFormControlSelect1">
+            <select class="form-control" name="category" id="exampleFormControlSelect1" value ="${ad.category}">
                 <option>Events</option>
                 <option>Business Operations</option>
             </select>

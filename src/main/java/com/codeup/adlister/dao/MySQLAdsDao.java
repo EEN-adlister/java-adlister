@@ -89,8 +89,7 @@ public class MySQLAdsDao implements Ads {
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next())
-                System.out.println(extractAd(rs));
+            if (rs.next());
             return extractAd(rs);
         }catch(SQLException e){
             throw new RuntimeException("id not found", e);
