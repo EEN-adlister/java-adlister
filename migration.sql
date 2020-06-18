@@ -29,11 +29,7 @@ CREATE TABLE ads (
 
 select * from users;
 
-SELECT *
-FROM ads
-WHERE  user_id = 1;
-
-
 select * from ads;
 
-select id from users where username = 'evey';
+ALTER TABLE users
+    ADD UNIQUE (username);
