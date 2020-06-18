@@ -31,6 +31,7 @@
 <div class="container mt-4">
     <h1>Here are ads you have posted!</h1>
 
+
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2>${ad.title}</h2>
@@ -47,15 +48,12 @@
                     Edit
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/ads/update-ad">Update Ad</a>
+                    <a class="dropdown-item" href="/ads/update?id=${ad.id}">Update Ad</a>
                 </div>
             </form>
         </div>
 
     </c:forEach>
 </div>
-
-
-
 </body>
 </html>
