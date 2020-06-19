@@ -4,10 +4,18 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
+
+    <style>
+        <%@include file="/css/loader.css" %>
+    </style>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
 
 <div id="formTitleAlert" class="alert alert-dark hide collapse " role="alert">
     <a class="close" data-dismiss="alert">×</a>
@@ -69,6 +77,10 @@
             e.stopPropagation();
             e.preventDefault();
             $(this).closest(".alert").slideUp(400);
+        });
+
+        $(window).on("load",function(){
+            $(".loader-wrapper").fadeOut("slow");
         });
     });
 </script>

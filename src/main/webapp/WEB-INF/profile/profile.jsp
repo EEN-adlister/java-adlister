@@ -6,9 +6,15 @@
         <jsp:param name="title" value="Your Profile"/>
     </jsp:include>
 
-</head>
+        <style>
+            <%@include file="/css/loader.css" %>
+        </style>
 <body id="bc">
 <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
+
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
 
 <div class="container">
     <div id="profile-info">
@@ -62,6 +68,15 @@
         </div>
     </div>
     </c:forEach>
+
+    <script>
+        $(document).ready(function () {
+
+            $(window).on("load", function () {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        });
+    </script>
 </div>
 </body>
 </html>
