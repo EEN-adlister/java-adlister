@@ -24,6 +24,7 @@
         <h1 class="typewriter ">Welcome, ${sessionScope.user.username}!</h1>
         <h5 class="typewriter ">Username: ${sessionScope.user.username}</h5>
         <h5 class="typewriter ">Email: ${sessionScope.user.email}</h5>
+
     </div>
 
     <div class="dropdown">
@@ -33,7 +34,7 @@
                 Edit
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/update">Update Account Information</a>
+                <a class="dropdown-item" href="/profile/update?id=${user.id}">Update Account Information</a>
             </div>
         </form>
     </div>

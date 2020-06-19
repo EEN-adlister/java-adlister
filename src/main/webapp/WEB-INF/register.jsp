@@ -66,7 +66,6 @@
             if ($.trim(username.val()) === "") {
                 e.preventDefault();
                 $("#formUserAlert").slideDown(400);
-
             } else var email = $(this).find('input[name="email"]');
             if ($.trim(email.val()) === "") {
                 e.preventDefault();
