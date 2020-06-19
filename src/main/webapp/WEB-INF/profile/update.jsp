@@ -18,7 +18,7 @@
 
 <div class="container">
     <h1>Update your profile</h1>
-    <h1>${error}</h1>
+    <h2>${error}</h2>
     <form action="/profile/update" method="POST">
         <div class="form-group col3">
             <label for="username"> Update username:</label>
@@ -30,10 +30,15 @@
         </div>
         <div class="form-group col3">
             <label for="password"> Update password:</label>
-            <input id="password" name="password" class="form-control" type="text" value ="${user.password}">
+            <input id="password" name="password" class="form-control" type="password" value ="${user.password}">
         </div>
 
-        <input id="user.id" name="user.id" class="form-control" type="hidden" value="${user.id}">
+        <div class="form-group col3">
+            <label for="confirm_password"> Confirm password:</label>
+            <input id="confirm_password" name="confirm_password" class="form-control" type="password" value ="${user.password}">
+        </div>
+
+        <input id="id" name="id" class="form-control" type="hidden" value="${user.id}">
         <input id="submit" type="submit" class="btn btn-primary col3" value="Update">
     </form>
 </div>
