@@ -19,13 +19,23 @@
 <div class="container mt-4">
 
     <h1>Here are your Business Operations</h1>
+
+
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p><strong>Category: </strong>${ad.category}</p>
-            <p><strong>Description: </strong>${ad.description}</p>
-            <p><strong>Posted by: </strong>${ad.displayUser()}</p>
+    <div class="card-deck mb-4">
+        <div class="card text-white bg-primary " style="width: 18rem;">
+            <div class="card-header">
+                <h2>${ad.title}</h2>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-primary"><strong>Category: </strong>${ad.category}</li>
+                <li class="list-group-item bg-primary"><strong>Description: </strong>${ad.description}</li>
+                <li class="list-group-item bg-primary"><strong>Posted by: </strong>${ad.displayUser()}</li>
+            </ul>
+
         </div>
+    </div>
     </c:forEach>
 </div>
 

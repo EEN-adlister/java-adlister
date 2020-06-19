@@ -5,8 +5,9 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile"/>
     </jsp:include>
+
 </head>
-<body>
+<body id="bc">
 <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
 <div class="container">
@@ -33,12 +34,19 @@
 
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p><strong>Category: </strong>${ad.category}</p>
-            <p><strong>Description: </strong>${ad.description}</p>
-            <p><strong>Posted by: </strong>${ad.displayUser()}</p>
-            <p><strong>ID: </strong>${ad.id}</p>
+    <div class="card-deck mb-4">
+        <div class="card text-white bg-dark" style="width: 18rem;">
+            <div class="card-header">
+                <h2>${ad.title}</h2>
+            </div>
+
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-secondary"><strong>Category: </strong>${ad.category}</li>
+            <li class="list-group-item bg-secondary"><strong>Description: </strong>${ad.description}</li>
+            <li class="list-group-item bg-secondary"><strong>Posted by: </strong>${ad.displayUser()}</li>
+            <li class="list-group-item bg-secondary"><strong>ID: </strong>${ad.id}</li>
+            </ul>
+
         </div>
 
         <div class="dropdown">
@@ -52,7 +60,7 @@
                 </div>
             </form>
         </div>
-
+    </div>
     </c:forEach>
 </div>
 </body>
