@@ -34,7 +34,8 @@
                 Edit
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/profile/update?id=${user.id}">Update Account Information</a>
+                <a class="dropdown-item" href="/profile/update-account?id=${user.id}">Update Account Information</a>
+                <a class="dropdown-item" href="/profile/update-password?id=${user.id}">Update Password</a>
             </div>
         </form>
     </div>
