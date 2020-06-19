@@ -7,21 +7,21 @@
     </jsp:include>
 
         <style>
-            <%@include file="/css/loader.css" %>
+            <%@include file="/css/profile.css" %>
         </style>
+
 <body id="bc">
-<jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
+<jsp:include page="/WEB-INF/partials/profile-login-nav.jsp"/>
 
+<div class="top-content top">
 <div class="container">
     <div id="profile-info">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <h5>Username: ${sessionScope.user.username}</h5>
-        <h5>Email: ${sessionScope.user.email}</h5>
+        <h1 class="typewriter ">Welcome, ${sessionScope.user.username}!</h1>
+        <h5 class="typewriter ">Username: ${sessionScope.user.username}</h5>
+        <h5 class="typewriter ">Email: ${sessionScope.user.email}</h5>
     </div>
+
     <div class="dropdown">
         <form action="list" method="post">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -34,21 +34,22 @@
         </form>
     </div>
 </div>
+</div>
+
 
 <div class="container mt-4">
-    <h1>Here are ads you have posted!</h1>
-
+    <h1 class="mb-4 flashy">Here are ads you have posted!</h1>
 
     <c:forEach var="ad" items="${ads}">
     <div class="card-deck mb-4">
-        <div class="card text-white bg-dark" style="width: 18rem;">
+        <div class="card text-white bg-secondary" style="width: 18rem;">
             <div class="card-header">
                 <h2>${ad.title}</h2>
             </div>
 
             <ul class="list-group list-group-flush">
             <li class="list-group-item bg-secondary"><strong>Category: </strong>${ad.category}</li>
-            <li class="list-group-item bg-secondary"><strong>Description: </strong>${ad.description}</li>
+            <li class="list-group-item bg-secondary "><strong>Description: </strong>${ad.description}</li>
             <li class="list-group-item bg-secondary"><strong>Posted by: </strong>${ad.displayUser()}</li>
             <li class="list-group-item bg-secondary"><strong>ID: </strong>${ad.id}</li>
             </ul>
@@ -67,14 +68,19 @@
             </form>
         </div>
     </div>
+
     </c:forEach>
 
     <script>
         $(document).ready(function () {
-
             $(window).on("load", function () {
                 $(".loader-wrapper").fadeOut("slow");
             });
+
+            $(window).scroll(function () {
+                $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+            });
+
         });
     </script>
 </div>
