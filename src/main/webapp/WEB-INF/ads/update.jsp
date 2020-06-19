@@ -15,7 +15,7 @@
     </jsp:include>
 </head>
 
-<body>
+<body style="background-color: lightgray">
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">

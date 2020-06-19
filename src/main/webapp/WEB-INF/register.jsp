@@ -7,7 +7,7 @@
         <jsp:param name="title" value="Register For Our Site!"/>
     </jsp:include>
 </head>
-<body>
+<body style="background-color: lightgray">
 <jsp:include page="partials/navbar.jsp"/>
 
 <div id="formUserAlert" class="alert alert-dark hide collapse " role="alert">

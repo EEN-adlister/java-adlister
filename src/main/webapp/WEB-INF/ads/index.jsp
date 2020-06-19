@@ -6,7 +6,7 @@
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
 </head>
-<body>
+<body style="background-color: lightgray">
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container mt-4">

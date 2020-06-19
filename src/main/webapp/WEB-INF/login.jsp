@@ -5,7 +5,7 @@
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
 </head>
-<body>
+<body style="background-color: lightgray">
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div id="formAlert" class="alert alert-warning hide collapse" role="alert">
@@ -29,14 +29,17 @@
             <input id="btn" type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
-
-    <div class="container">
-    <form action="/register">
-        <div class="form-group">
-        <input type="submit" class="btn btn-success btn-block" value="Create an account">
+    <div class="card w-75" style="margin-left: 150px;">
+        <div class="card-body justify-center mr-0">
+            <h6 class="card-text text-center">If you aren't apart of our social community yet, join us!</h6>
+                <form action="/register">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Create an account">
+                    </div>
+                </form>
         </div>
-    </form>
     </div>
+
 
     <script>
 

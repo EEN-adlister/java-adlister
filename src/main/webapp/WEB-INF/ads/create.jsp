@@ -5,7 +5,7 @@
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
 </head>
-<body>
+<body style="background-color: lightgray">
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 

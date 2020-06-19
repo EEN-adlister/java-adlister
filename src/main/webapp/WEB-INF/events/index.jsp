@@ -13,7 +13,7 @@
         <jsp:param name="title" value="Events" />
     </jsp:include>
 </head>
-<body>
+<body style="background-color: lightgray">
 <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
 
 <div class="container mt-4">
