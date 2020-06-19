@@ -6,12 +6,12 @@
     </jsp:include>
 
     <style>
-        <%@include file="/css/loader.css" %>
+        <%@include file="/css/all.css" %>
     </style>
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
 
 <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>

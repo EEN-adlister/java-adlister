@@ -6,6 +6,7 @@ body, html {
 
 body {
     background-color: #1A1A1D;
+    margin-top: 70px;
 
 }
 
@@ -15,11 +16,8 @@ body {
 
 }
 
-
-
-
 .navbar-dark.scrolled {
-    background: #292929 !important;
+    background: #1A1A1D !important;
 }
 
 .loader-wrapper {

@@ -12,13 +12,23 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Business Operations" />
     </jsp:include>
+
+    <style>
+        <%@include file="/css/all.css" %>
+    </style>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
 
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+
 <div class="container mt-4">
 
-    <h1>Here are your Business Operations</h1>
+    <h1>Here is how business operations are running around town</h1>
 
 
     <c:forEach var="ad" items="${ads}">
@@ -38,6 +48,16 @@
     </div>
     </c:forEach>
 </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+
+    });
+</script>
 
 </body>
 </html>

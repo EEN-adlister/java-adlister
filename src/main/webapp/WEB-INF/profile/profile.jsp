@@ -14,6 +14,10 @@
 
 <jsp:include page="/WEB-INF/partials/profile-login-nav.jsp"/>
 
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
 <div class="top-content top">
 <div class="container">
     <div id="profile-info">
