@@ -12,37 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(name = "controllers.UpdateProfileServlet", urlPatterns = "/profile/update-account")
-public class UpdateProfileServlet extends HttpServlet {
+@WebServlet(name = "controllers.UpdatePasswordServlet", urlPatterns = "/profile/update-password")
+public class UpdatePasswordServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User currentUser = (User) request.getSession().getAttribute("user");
-//        System.out.println(userUpdateID);
-        String error = request.getParameter("error");
-        System.out.println(error);
-        User user = DaoFactory.getUsersDao().findByUserId(currentUser.getId());
-        request.setAttribute("user", user);
-        request.setAttribute("error", error);
-        request.getRequestDispatcher("/WEB-INF/profile/update-account.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/profile/update-password.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String updatePassword = request.getParameter("password");
+        String confirmUpdatePassword = request.getParameter("confirm_password");
 
-        String updateUsername = request.getParameter("username");
-        String updateEmail = request.getParameter("email");
 
         User user = (User) request.getSession().getAttribute("user");
 
-        if(DaoFactory.getUsersDao().doesUsernameExist(updateUsername)){
-            response.sendRedirect("/profile/update-account?error=username_exists");
-            return;
-        }
-
         User updateProfile = DaoFactory.getUsersDao().findByUserId(user.getId());
-        updateProfile.setUsername(updateUsername);
-        updateProfile.setEmail(updateEmail);
+        updateProfile.setPassword(updatePassword);
 
         DaoFactory.getUsersDao().updateUserProfile(updateProfile);
         request.getSession().setAttribute("user", updateProfile);
         response.sendRedirect("/profile");
     }
+
 }

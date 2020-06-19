@@ -17,7 +17,7 @@ public class UpdateAdServlet extends HttpServlet {
         Long adID = Long.parseLong(request.getParameter("id"));
         Ad ad = DaoFactory.getAdsDao().adId(adID);
         request.setAttribute("ad",ad);
-        request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/ads/update-account.jsp").forward(request,response);
     }
 
 
