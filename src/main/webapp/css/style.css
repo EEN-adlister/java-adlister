@@ -1,0 +1,10 @@
+body {
+    background-image: url("https://icbstexas.com/wp-content/uploads/split-color-background.jpg");
+    min-height: 750px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

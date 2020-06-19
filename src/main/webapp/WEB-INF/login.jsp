@@ -4,9 +4,17 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
+
+    <style>
+        <%@include file="/css/loader.css" %>
+    </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+    </div>
 
     <div id="formAlert" class="alert alert-warning hide collapse" role="alert">
         <a class="close" data-dismiss="alert">×</a>
@@ -67,6 +75,10 @@
                 setTimeout(function () {
                     $('#formAlert').hide('fade');
                 }, 2000);
+            });
+
+            $(window).on("load",function(){
+                $(".loader-wrapper").fadeOut("slow");
             });
 
         });
