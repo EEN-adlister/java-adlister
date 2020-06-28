@@ -30,6 +30,8 @@ CREATE TABLE ads (
 select * from users;
 
 select * from ads;
+Select * FROM ads WHERE title ='Bakery';
+
 
 ALTER TABLE users
     ADD UNIQUE (username);
