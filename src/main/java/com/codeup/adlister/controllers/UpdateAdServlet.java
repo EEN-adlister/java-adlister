@@ -15,6 +15,7 @@ import java.io.IOException;
 public class UpdateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long adID = Long.parseLong(request.getParameter("id"));
+        System.out.println(adID);
         Ad ad = DaoFactory.getAdsDao().adId(adID);
         request.setAttribute("ad",ad);
         request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request,response);
@@ -41,3 +42,4 @@ public class UpdateAdServlet extends HttpServlet {
         response.sendRedirect("/profile");
     }
 }
+
