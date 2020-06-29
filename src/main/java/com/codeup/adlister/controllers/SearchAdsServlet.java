@@ -18,18 +18,19 @@ import java.util.List;
 @WebServlet(name = "controllers.SearchAdsServlet", urlPatterns = "/ads/search")
 
 public class SearchAdsServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
-        String userSearch= request.getParameter("searchWord");
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
-        List<Ad> ads = DaoFactory.getAdsDao().searchAdByWord(userSearch);
-        System.out.println(ads);
-    }
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String userSearch= request.getParameter("searchWord");
+//        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+//        List<Ad> ads = DaoFactory.getAdsDao().searchAdByWord(userSearch);
+//        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
+//        response.sendRedirect("/ads/search");
+//    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userSearch = request.getParameter("searchWord");
         request.setAttribute("ads", DaoFactory.getAdsDao().searchAdByWord(userSearch));
         request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
         response.sendRedirect("/ads/search");
+
     }
 }

@@ -12,12 +12,13 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active"><a class="nav-link" href="/login">Login</a></li>
             <li class="nav-item active"><a class="nav-link" href="/register">Create an Account</a> </li>
-
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+
+        <form action ="/ads/search" method="post" class="form-inline my-2 my-lg-0" >
             <input class="form-control mr-sm-2" name="searchWord" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
         </div>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
